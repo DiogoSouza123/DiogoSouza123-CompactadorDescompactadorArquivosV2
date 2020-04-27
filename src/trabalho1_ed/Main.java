@@ -15,8 +15,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //CompactaDescompacta.compartar("ArquivoEntrada.txt", "ArquivoSaida.txt");
-        ListaEncadeada lista = new ListaEncadeada();
+        CompactaDescompacta.compartar("ArquivoEntrada.txt", "ArquivoSaida.txt");
+        /*ListaEncadeada lista = new ListaEncadeada();
         lista.insereInicio("Dear");
         lista.insereInicio("Sally,");
         lista.insereInicio("Please,");
@@ -28,7 +28,7 @@ public class Main {
         System.out.println(lista);
         lista.insereInicio("Dear");
         System.out.println(lista);
-        
+        */
     }
     
 }

@@ -21,7 +21,7 @@ public class CompactaDescompacta {
     public static void compartar(String arquivoEntrada, String arquivoSaida) {
         String linha = null;
         ListaEncadeada lista = new ListaEncadeada();
-        //int tamanhoPalavra; //variavel para permitir acesso ao ultimo caractere da palavra
+
         try {
             FileReader fileReader = new FileReader(arquivoEntrada);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -30,14 +30,25 @@ public class CompactaDescompacta {
             
             // loop por cada linha do arquivo
             while (!(linha = bufferedReader.readLine()).equals("0")) {
-                String [] palavra = linha.split(" ");
-                
+                String[] palavra = linha.split(" ");
+                for (int i = 0; i < palavra.length; i++) {
+                    int verificador = lista.buscarElemento(palavra[i]);
+                    if(verificador==0){
+                        lista.insereInicio(palavra[i]);
+                        bufferedWriter.write(palavra[i]+" ");
+                    }else{
+                        bufferedWriter.write(verificador+" ");
+                        lista.excluirParaMover(verificador);
+                        lista.insereInicio(palavra[i]);
+                    }
+                }
+            bufferedWriter.newLine();
             }
 
             // feche o arquivo
             bufferedReader.close();
             bufferedWriter.close();
-            
+
         } catch (FileNotFoundException ex) {
             System.out.println("Arquivo inexistente!");
         } catch (IOException ex) {
@@ -45,8 +56,6 @@ public class CompactaDescompacta {
         }
 
     }
-    
-    
 
     public static void descompactar(String nomeDoArquivo) {
 
