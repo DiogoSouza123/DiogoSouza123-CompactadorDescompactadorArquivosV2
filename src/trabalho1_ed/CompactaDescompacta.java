@@ -20,7 +20,8 @@ public class CompactaDescompacta {
 
     public static void compartar(String arquivoEntrada, String arquivoSaida) {
         String linha = null;
-
+        ListaEncadeada lista = new ListaEncadeada();
+        //int tamanhoPalavra; //variavel para permitir acesso ao ultimo caractere da palavra
         try {
             FileReader fileReader = new FileReader(arquivoEntrada);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -28,14 +29,9 @@ public class CompactaDescompacta {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             
             // loop por cada linha do arquivo
-            while ((linha = bufferedReader.readLine()) != null) {
-                String[] v = linha.split(" ");
-                bufferedWriter.write(linha);
-                bufferedWriter.newLine();
-                for (int i = 0; i < v.length; i++) {
-                    System.out.print(v[i]+" ");
-                }
-                System.out.println("\n");
+            while (!(linha = bufferedReader.readLine()).equals("0")) {
+                String [] palavra = linha.split(" ");
+                
             }
 
             // feche o arquivo
@@ -49,6 +45,8 @@ public class CompactaDescompacta {
         }
 
     }
+    
+    
 
     public static void descompactar(String nomeDoArquivo) {
 

@@ -15,7 +15,20 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //CompactaDescompacta.compartar("ArquivoEntrada.txt", "ArquivoSaida.txt");
+        ListaEncadeada lista = new ListaEncadeada();
+        lista.insereInicio("Dear");
+        lista.insereInicio("Sally,");
+        lista.insereInicio("Please,");
+        lista.insereInicio("please");
+        lista.insereInicio("do");
+        lista.insereInicio("it");
+        System.out.println(lista);
+        lista.excluirParaMover(6);
+        System.out.println(lista);
+        lista.insereInicio("Dear");
+        System.out.println(lista);
+        
     }
     
 }
