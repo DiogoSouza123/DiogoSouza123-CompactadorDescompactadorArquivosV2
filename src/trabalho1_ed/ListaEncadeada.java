@@ -47,6 +47,8 @@ public class ListaEncadeada {
 
     //metodo para excluir No da lista para move-lo para o inicio depois
     public void excluirParaMover(int posicao) {
+
+        if(posicao!=1){
         int contador = 1;
         No temp = ini;
         No anterior = null;
@@ -58,7 +60,23 @@ public class ListaEncadeada {
         }
         
         anterior.setProx(temp.getProx());
+        }else{
+            removeInicio();
+        }
+    }
+    
+    public String buscarPalavra(int indice){
+        String palavra = "";
+        No temp = ini;
+        int contador = 1;
         
+        while (contador < indice) {
+            temp = temp.getProx();
+            contador++;
+        }
+        
+        palavra = (String)temp.getElemento();
+        return palavra;
     }
 
     @Override
@@ -72,6 +90,14 @@ public class ListaEncadeada {
 
         }
         return strLista;
+    }
+    
+    public void removeInicio() {
+        if (vazia()) {
+            System.out.println("A lista está vazia");
+        } else {
+            ini.setProx(ini.getProx());
+        }
     }
 
 }
